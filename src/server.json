@@ -1,0 +1,94 @@
+{
+    "users": [
+        {
+            "id": "111",
+            "firstName": "Shiri",
+            "lastName": "Cohen",
+            "address": {
+                "city": "Tel Aviv",
+                "street": "Duvdevan",
+                "number": 1
+            },
+            "phone": "0504100000",
+            "email": "shiri@gmail.com",
+            "hight": 1.50,
+            "weight": {
+                "startWeight": 90,
+                "meeting": [
+                    {
+                        "date": "20/06/2022",
+                        "weight": 89
+                    },
+                    {
+                        "date": "20/07/2022",
+                        "weight": 87
+                    },
+                    {
+                        "date": "20/08/2022",
+                        "weight": 88
+                    }
+                ]
+            }
+        },
+        {
+            "id": "222",
+            "firstName": "Dan",
+            "lastName": "Levi",
+            "address": {
+                "city": "Ramat Gan",
+                "street": "Rimon",
+                "number": 2
+            },
+            "phone": "0504100000",
+            "email": "dan@gmail.com",
+            "hight": 1.60,
+            "weight": {
+                "startWeight": 100,
+                "meeting": [
+                    {
+                        "date": "20/06/2022",
+                        "weight": 99
+                    },
+                    {
+                        "date": "20/07/2022",
+                        "weight": 97
+                    },
+                    {
+                        "date": "20/08/2022",
+                        "weight": 98
+                    }
+                ]
+            }
+        },
+        {
+            "id": "333",
+            "firstName": "Avi",
+            "lastName": "Israel",
+            "address": {
+                "city": "Petah Tikva",
+                "street": "Gefen",
+                "number": 3
+            },
+            "phone": "0504100000",
+            "email": "avi@gmail.com",
+            "hight": 1.70,
+            "weight": {
+                "startWeight": 110,
+                "meeting": [
+                    {
+                        "date": "12/03/2022",
+                        "weight": 99
+                    },
+                    {
+                        "date": "12/03/2022",
+                        "weight": 97
+                    },
+                    {
+                        "date": "12/03/2022",
+                        "weight": 98
+                    }
+                ]
+            }
+        }
+    ]
+}

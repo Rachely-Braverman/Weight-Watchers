@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user entry</title>
+</head>
+
+<body>
+    <input type="email" id="email" name="email" placeholder="enter your email address" required />
+    <input type="button" value="Enter" onclick="connect();">
+</body>
+
+</html>
+<script type="text/javascript">
+
+    function connect() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", '/src/server.json');
+        xhr.send();
+        xhr.onload = function () {
+            if (xhr.status != 200) {
+                alert(`Error ${xhr.status}: ${xhr.statusText}`);
+            } else {
+                let users = [];
+                users = JSON.parse(xhr.responseText).users;
+                console.log(users);
+                var email = document.getElementById("email").value;
+                console.log(email);
+                var myUser = [];
+                console.log(myUser);
+                for (var i = 0; i < users.length; i++) {
+                    if (users[i].email == email) {
+                        myUser = users[i];
+                        break;
+                    }
+                }
+                // myUser = users.find((user) => {
+                //     user === email;
+                //     console.log(user.email);
+                // });
+                console.log(myUser);
+                if (myUser != null) {
+                    localStorage.setItem(`${myUser.id}`, JSON.stringify(myUser));
+                    let bmi = myUser.weight.meeting[myUser.weight.meeting.length - 1].weight / (myUser.hight * myUser.hight);
+                    window.location.href = "/src/userDetails.html?id=" + myUser.id + "&bmi=" + bmi;
+                }
+            }
+        }
+    }
+</script>
