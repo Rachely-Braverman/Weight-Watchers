@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user details</title>
+</head>
+
+<body>
+    <ul id="userDesplay">
+        <h1 id="fullName"></h1>
+        <div>
+            <h3>address: </h3>
+            <h4 id="street"></h4>
+            <h4 id="houseNumber"></h4>
+            <h4 id="city"></h4>
+        </div>
+        <h3>phone number: <h4 id="phone"></h4>
+        </h3>
+        <h3>email: <h4 id="email"></h4>
+        </h3>
+        <h3>bmi: <h4 id="bmi"></h4>
+        </h3>
+        <div id="meetings">
+            <h3>meetings: </h3>
+        </div>
+    </ul>
+</body>
+
+</html>
+<script type="text/javascript">
+    const url = new URL(window.location.href);
+    var userId = url.searchParams.get("id");
+    var myUser = localStorage.getItem(userId);
+    console.log("myUser" + myUser);
+    var name1 = JSON.parse(myUser).firstName;
+    var name2 = JSON.parse(myUser).lastName;
+    var fullName = name1 + " " + name2;
+    var city = JSON.parse(myUser).address.city;
+    var street = JSON.parse(myUser).address.street;
+    var houseNumber = JSON.parse(myUser).address.number;
+    var phone = JSON.parse(myUser).phone;
+    var email = JSON.parse(myUser).email;
+    let hight = JSON.parse(myUser).hight;
+    var startWeight = JSON.parse(myUser).weight.startWeight;
+    let meetings = JSON.parse(myUser).weight.meeting;
+    var bmi = url.searchParams.get("bmi");
+
+    document.getElementById("fullName").innerHTML += fullName;
+    document.getElementById("street").innerHTML += street;
+    document.getElementById("city").innerHTML += city;
+    document.getElementById("houseNumber").innerHTML += houseNumber;
+    document.getElementById("phone").innerHTML += phone;
+    document.getElementById("email").innerHTML += email;
+    document.getElementById("bmi").innerHTML += bmi;
+    meetings.forEach(element => {
+        document.getElementById("meetings").innerHTML += "Date: " + element.date + "<br/>";
+        document.getElementById("meetings").innerHTML += "weight: " + element.weight + "<br/><br/>";
+    });
+
+</script>
