@@ -5,8 +5,8 @@ class usersList {
         this.#usersList = users;
     }
 
-    get usersList() { return this.#usersList; }
-    set usersList(value) { this.#usersList = value; }
+    getUsersList() { return this.#usersList; }
+    setUsersList(value) { this.#usersList = value; }
 
     streets() {
         let streets = [];
@@ -25,8 +25,8 @@ class usersList {
         var newArr = this.#usersList.filter(u => u.lastName() == name);
         return newArr;
     }
-    search() {
-        filterByFirstName(document.getElementById("firstName").value);
-        filterByLastName(document.getElementById("lastName").value);
+    search(name) {
+        this.filterByFirstName(name);
+        this.filterByLastName(document.getElementById("lastName").value);
     }
 }

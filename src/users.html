@@ -33,14 +33,13 @@
         <div class="card-header">
             Search
         </div>
-        <form class="row g-3">
+        <div class="row g-3">
             <div class="col-md-6">
-                <label for="inputFirstName" id="firstName" onclick="filterByFirstName" class="form-label">First
-                    Name</label>
+                <label for="inputFirstName" id="firstName" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="inputFirstName">
             </div>
             <div class="col-md-6">
-                <label for="inputLastName" id="lastName" onclick="filterByLastName" class="form-label">Last Name</label>
+                <label for="inputLastName" id="lastName" class="form-label">Last Name</label>
                 <input type="text" class="form-control" id="inputLastName">
             </div>
             <div class="col-md-6">
@@ -62,9 +61,9 @@
                 </select>
             </div>
             <div class="col-12">
-                <button onclick="u.search()" class="btn btn-light">Search</button>
+                <button onclick="f();" id="search" class="btn btn-light">Search</button>
             </div>
-        </form>
+        </div>
     </div>
     <h2>this is the list of all the group participants</h2>
     <ul id="usersTable"></ul>
@@ -74,7 +73,8 @@
 </html>
 
 <script type="text/javascript">
-
+    let flag=false;
+    let users = [];
     const xhr = new XMLHttpRequest();
     xhr.open("GET", '/src/server.json');
     xhr.send();
@@ -82,7 +82,8 @@
         if (xhr.status != 200) {
             alert(`Error ${xhr.status}: ${xhr.statusText}`);
         } else {
-            var users = JSON.parse(xhr.responseText).users;
+            flag = true;
+            users = JSON.parse(xhr.responseText).users;
             console.log(users);
             const container = document.getElementById("usersTable");
             const arr = users.map(user => {
@@ -111,7 +112,15 @@
 
             container.append(...arr);
         }
-        const u = new usersList(users);
+        
+    }
+    function f() {
+        
+        if(flag){
+            const u = new usersList(JSON.parse(xhr.responseText).users);
+            u.search();
+        }
+        
     }
 
 </script>
