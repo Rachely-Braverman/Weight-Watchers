@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nutrition data</title>
+</head>
+
+<body>
+  <h1>Getting nutritional values ​​of food</h1>
+  <input type="text" id="food" placeholder="enter the name of a food" onkeydown="searchProducts()">
+  <div><input type="button" id="clear" style="display: none;" value="clear search" onclick="clearSearch();"></div>
+  <div id="components"></div>
+
+</body>
+
+</html>
+<script>
+  function searchProducts() {
+    document.getElementById("components").innerHTML = ""
+    const options = {
+      method: "GET",
+      headers: {},
+    };
+    let name = document.getElementById("food").value;
+    let result = fetch(
+      "https://data.gov.il/api/3/action/datastore_search?resource_id=c3cb0630-0650-46c1-a068-82d575c094b2&limit=100",
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        const data = response.result.records;
+        console.log(data);
+        return data;
+      })
+      .then((data) => {
+        filterData = data.filter((product) => {
+          return product.shmmitzrach.includes(name);
+        });
+        return filterData;
+      })
+      .then((data) => {
+        document.getElementById("clear").style.display = "block";
+        if (data.length == 0) {
+          alert("There is no such product")
+        }
+        else {
+          console.log(data)
+          data.forEach((d) => {
+            document.getElementById("components").innerHTML +=
+              `<b>${d.shmmitzrach}</b>` +
+              `<p>total fat:${d.total_fat}</p>` +
+              `<p>total sugars :${d.total_sugars}</p>` +
+              `<p> carbohydrates :${d.carbohydrates}</p>` +
+              `<p> food energy :${d.food_energy}</p>` +
+              `<p>polyunsaturated fat :${d.poly_unsaturated_fat}</p>`
+          });
+          
+        }
+      })
+      .catch((err) => console.log(err));
+  }
+  function clearSearch() {
+    document.getElementById('food').value = '';
+    document.getElementById('components').innerHTML = '';
+    document.getElementById("clear").style.display = "none";
+  }
+</script>
