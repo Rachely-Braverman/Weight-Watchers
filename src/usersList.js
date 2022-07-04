@@ -13,20 +13,20 @@ class usersList {
         this.#usersList.forEach(element => {
             streets.push(element.address.street);
         });
-        console.log(streets);
         return streets;
     }
 
     filterByFirstName(name) {
-        var newArr = this.#usersList.filter(u => u.firstName() == name);
-        this.#usersList = newArr;
+        let filteredList = this.#usersList.filter(user => user.firstName == name);
+        return filteredList;
     }
     filterByLastName(name) {
-        var newArr = this.#usersList.filter(u => u.lastName() == name);
-        return newArr;
+        let filteredList = this.#usersList.filter(user => user.lastName == name);
+        return filteredList;
     }
-    search(name) {
-        this.filterByFirstName(name);
-        this.filterByLastName(document.getElementById("lastName").value);
+    search() {
+        this.filterByFirstName(document.getElementById('inputFirstName').value);
+        this.filterByLastName(document.getElementById('inputLastName').value);
+        this.streets();
     }
 }

@@ -10,7 +10,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
     <title>users</title>
+
     <style>
         a {
             color: black;
@@ -28,30 +30,30 @@
 
 <body>
     <script src="usersList.js"></script>
-    <h1>welcome the group manager</h1>
+    <h1>Welcome to the group manager</h1>
     <div class="card text-center">
         <div class="card-header">
-            Search
+            User search
         </div>
         <div class="row g-3">
             <div class="col-md-6">
-                <label for="inputFirstName" id="firstName" class="form-label">First Name</label>
+                <label for="inputFirstName" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="inputFirstName">
             </div>
             <div class="col-md-6">
-                <label for="inputLastName" id="lastName" class="form-label">Last Name</label>
+                <label for="inputLastName" class="form-label">Last Name</label>
                 <input type="text" class="form-control" id="inputLastName">
             </div>
             <div class="col-md-6">
-                <label for="inputPhone" id="phone" class="form-label">Phone number</label>
+                <label for="inputPhone" class="form-label">Phone number</label>
                 <input type="phone" class="form-control" id="inputPhone">
             </div>
             <div class="col-md-6">
-                <label for="inputEmail4" id="email" class="form-label">Email</label>
+                <label for="inputEmail4" class="form-label">Email</label>
                 <input type="email" class="form-control" id="inputEmail4">
             </div>
             <div class="col-md-6">
-                <label for="inputCity" id="city" class="form-label">City</label>
+                <label for="inputCity" class="form-label">City</label>
                 <input type="text" class="form-control" id="inputCity">
             </div>
             <div class="col-md-4">
@@ -61,7 +63,7 @@
                 </select>
             </div>
             <div class="col-12">
-                <button onclick="f();" id="search" class="btn btn-light">Search</button>
+                <button onclick="search();" id="search" class="btn btn-light">Search</button>
             </div>
         </div>
     </div>
@@ -73,8 +75,6 @@
 </html>
 
 <script type="text/javascript">
-    let flag=false;
-    let users = [];
     const xhr = new XMLHttpRequest();
     xhr.open("GET", '/src/server.json');
     xhr.send();
@@ -82,45 +82,40 @@
         if (xhr.status != 200) {
             alert(`Error ${xhr.status}: ${xhr.statusText}`);
         } else {
-            flag = true;
-            users = JSON.parse(xhr.responseText).users;
+            const users = JSON.parse(xhr.responseText).users;
             console.log(users);
             const container = document.getElementById("usersTable");
             const arr = users.map(user => {
-                var bmi = user.weight.meeting[user.weight.meeting.length - 1].weight / (user.hight * user.hight);
-                var wrapper = document.createElement("div");
+                let bmi = user.weight.meeting[user.weight.meeting.length - 1].weight / (user.hight * user.hight);
+                let wrapper = document.createElement("div");
                 container.appendChild(wrapper);
-                var userDes = document.createElement("li");
-                var name = document.createElement("div");
-                var link = document.createElement("a");
-                var txt1 = document.createTextNode(user.firstName + ' ' + user.lastName);
-                link.appendChild(txt1);
+                let userDisplay = document.createElement("li");
+                let name = document.createElement("div");
+                let link = document.createElement("a");
+                let txtName = document.createTextNode(user.firstName + ' ' + user.lastName);
+                link.appendChild(txtName);
                 link.href = "/src/userDetails.html?id=" + user.id + "&bmi=" + bmi;
                 name.appendChild(link);
-                var bmiDes = document.createElement("p");
-                var txt2 = document.createTextNode("bmi: " + bmi);
-                bmiDes.appendChild(txt2);
+                let bmiDisplay = document.createElement("p");
+                let txtBMI = document.createTextNode("bmi: " + bmi);
+                bmiDisplay.appendChild(txtBMI);
                 if (bmi > 25)
-                    bmiDes.classList.add("colorRed");
+                    bmiDisplay.classList.add("colorRed");
                 else
-                    bmiDes.classList.add("colorGreen");
-                userDes.appendChild(name);
-                userDes.appendChild(bmiDes);
-                wrapper.appendChild(userDes);
+                    bmiDisplay.classList.add("colorGreen");
+                userDisplay.appendChild(name);
+                userDisplay.appendChild(bmiDisplay);
+                wrapper.appendChild(userDisplay);
                 return wrapper;
             })
-
             container.append(...arr);
         }
-        
     }
-    function f() {
-        
-        if(flag){
-            const u = new usersList(JSON.parse(xhr.responseText).users);
-            u.search();
+    function search() {
+        if (xhr.readyState == 4) {
+            const allUsers = new usersList(JSON.parse(xhr.responseText).users);
+            allUsers.search();
         }
-        
     }
 
 </script>

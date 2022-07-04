@@ -10,13 +10,13 @@
 
 <body>
     <input type="email" id="email" name="email" placeholder="enter your email address" required />
-    <input type="button" value="Enter" onclick="connect();">
+    <input type="button" value="Enter" onclick="login();">
 </body>
 
 </html>
 <script type="text/javascript">
 
-    function connect() {
+    function login() {
         const xhr = new XMLHttpRequest();
         xhr.open("GET", '/src/server.json');
         xhr.send();
@@ -27,18 +27,18 @@
                 let users = [];
                 users = JSON.parse(xhr.responseText).users;
                 console.log(users);
-                var email = document.getElementById("email").value;
+                let email = document.getElementById("email").value;
                 console.log(email);
-                var myUser = [];
+                let myUser = [];
                 console.log(myUser);
-                for (var i = 0; i < users.length; i++) {
-                    if (users[i].email == email) {
+                for (let i = 0; i < users.length; i++) {
+                    if (users[i].email === email) {
                         myUser = users[i];
                         break;
                     }
                 }
                 // myUser = users.find((user) => {
-                //     user === email;
+                //     user.email === email;
                 //     console.log(user.email);
                 // });
                 console.log(myUser);

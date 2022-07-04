@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <ul id="userDesplay">
+    <ul id="userDisplay">
+        <a id="dairyLink"></a>
         <h1 id="fullName"></h1>
         <div>
             <h3>address: </h3>
@@ -32,22 +33,26 @@
 </html>
 <script type="text/javascript">
     const url = new URL(window.location.href);
-    var userId = url.searchParams.get("id");
-    var myUser = localStorage.getItem(userId);
+    const userId = url.searchParams.get("id");
+    const myUser = localStorage.getItem(userId);
     console.log("myUser" + myUser);
-    var name1 = JSON.parse(myUser).firstName;
-    var name2 = JSON.parse(myUser).lastName;
-    var fullName = name1 + " " + name2;
-    var city = JSON.parse(myUser).address.city;
-    var street = JSON.parse(myUser).address.street;
-    var houseNumber = JSON.parse(myUser).address.number;
-    var phone = JSON.parse(myUser).phone;
-    var email = JSON.parse(myUser).email;
-    let hight = JSON.parse(myUser).hight;
-    var startWeight = JSON.parse(myUser).weight.startWeight;
-    let meetings = JSON.parse(myUser).weight.meeting;
-    var bmi = url.searchParams.get("bmi");
-
+    const name1 = JSON.parse(myUser).firstName;
+    const name2 = JSON.parse(myUser).lastName;
+    const fullName = name1 + " " + name2;
+    const city = JSON.parse(myUser).address.city;
+    const street = JSON.parse(myUser).address.street;
+    const houseNumber = JSON.parse(myUser).address.number;
+    const phone = JSON.parse(myUser).phone;
+    const email = JSON.parse(myUser).email;
+    const hight = JSON.parse(myUser).hight;
+    const startWeight = JSON.parse(myUser).weight.startWeight;
+    const meetings = JSON.parse(myUser).weight.meeting;
+    const bmi = url.searchParams.get("bmi");
+    const link =document.createElement("a");
+    let txt = document.createTextNode("dairy");
+    link.appendChild(txt);
+    link.href="/src/dairy.html?id=" + userId;
+    document.getElementById("userDisplay").appendChild(link);
     document.getElementById("fullName").innerHTML += fullName;
     document.getElementById("street").innerHTML += street;
     document.getElementById("city").innerHTML += city;
