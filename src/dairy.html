@@ -1,42 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <title>dairy</title>
-</head>
-<body>
-    <script src="dairy.js"></script>
 
-    <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">date</th>
-            <th scope="col">first meal</th>
-            <th scope="col">second meal</th>
-            <th scope="col">last meal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          
-        </tbody>
-      </table>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <title>dairy</title>
+</head>
+
+<body>
+  <script src="dairy.js"></script>
+  <h2>add new date data</h2>
+  <br>
+  <div>
+    <p>Date</p>
+    <input type="date" id="date">
+  </div>
+  <br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="row"></th>
+        <th scope="row">first meal</th>
+        <th scope="row">second meal</th>
+        <th scope="row">last meal</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <th scope="col">1</th>
+        <th><input id="Breakfast1" placeholder="enter food"></th>
+        <th><input id="Lunch1" placeholder="enter food"></th>
+        <th><input id="Dinner1" placeholder="enter food"></th>
+      </tr>
+      <tr>
+        <th scope="col">2</th>
+        <th><input id="Breakfast2" placeholder="enter food"></th>
+        <th><input id="Lunch2" placeholder="enter food"></th>
+        <th><input id="Dinner2" placeholder="enter food"></th>
+      </tr>
+      <tr>
+        <th scope="col">3</th>
+        <th><input id="Breakfast3" placeholder="enter food"></th>
+        <th><input id="Lunch3" placeholder="enter food"></th>
+        <th><input id="Dinner3" placeholder="enter food"></th>
+      </tr>
+      <tr>
+        <th scope="col">4</th>
+        <th><input id="Breakfast4" placeholder="enter food"></th>
+        <th><input id="Lunch4" placeholder="enter food"></th>
+        <th><input id="Dinner4" placeholder="enter food"></th>
+      </tr>
+
+    </tbody>
+  </table>
+  <button onclick="foodMeals()">add meals</button>
+  <button onclick="myDairy()">show my dairy</button>
 </body>
+
 </html>
-<script type="text/javascript">
-    const url = new URL(window.location.href);
-    let userId = url.searchParams.get("id");
-    console.log(userId)
-</script>
