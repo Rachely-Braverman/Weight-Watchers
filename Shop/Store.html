@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>The store</title>
+</head>
+
+<body>
+    <button id="btnShow">להצגת רשימת המוצרים</button><br />
+    <div class="ShowProducts">
+    </div>
+    <form id="formProduct">
+        <label>שם המוצר</label>
+        <input type="text" id="ProductName"><br />
+        <label>קטגוריה</label>
+        <input type="number" id="categoryProduct"><br />
+        <label>מחיר</label>
+        <input type="number" id="priceProduct"><br />
+        <label>כמות</label>
+        <input type="number" id="countProduct"><br />
+        <button id="btnAdd" type="submit">הוספת מוצר</button><br />
+        <button id="btnUpdate" type="submit">עדכון מוצר</button><input type="number" id="id"><br />
+        <button id="btnDelete" type="submit">מחיקת מוצר</button><input type="number" id="idDelete"><br />
+    </form>
+    <div id="search">
+        <p>חיפוש</p><br />
+        <input type="radio" id="nameProduct">שם מוצר</input><br />
+        <input type="text" id="NameSearch"><br />
+        <input type="radio" id="priceRange">טווח מחיר</input><br />
+        <input type="text" id="From"><br />
+        <input type="text" id="To"><br />
+        <input type="radio" id="category">קטגוריה</input><br />
+        <input type="text" id="CategorySearch"><br />
+        <input type="radio" id="outOfStock">אזל מהמלאי/כמעט אזל מהמלאי</input><br />
+        <button id="BtnSearch">חיפוש</button>
+    </div>
+    <script src="Store.js"></script>
+    <script src="Product.js"></script>
+
+</body>
+
+</html>

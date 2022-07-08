@@ -1,0 +1,585 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+    margin: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    max-width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    display: block;
+    width: 100%;
+    background-color: rgb(92, 20, 92);
+    position: fixed;
+    z-index: 1;
+    height: 20vh;
+}
+
+.buttonWhite {
+    background-color: white;
+    color: rgb(92, 20, 92);
+    fill: #fff;
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.buttonWhite2 {
+    background-color: white;
+    color: rgb(92, 20, 92);
+    fill: #fff;
+    box-shadow: inset 0 0 0 1px #fff;
+    border-color: rgb(92, 20, 92);
+    box-shadow: inset 0 0 0 1px rgb(92, 20, 92);
+}
+
+.buttonPurple {
+    background-color: transparent;
+    color: #fff;
+    fill: #fff;
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.buttonPurple2 {
+    background-color: rgb(92, 20, 92);
+    color: #fff;
+    fill: #fff;
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+button {
+    appearance: none;
+    background: 0 0;
+    margin-left: 1%;
+    margin-right: 1%;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.2857;
+    letter-spacing: .8px;
+    font-size: .875rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 19px 40px 20px;
+    display: block;
+    width: 100%;
+    transition: box-shadow 420ms cubic-bezier(.165, .84, .44, 1), color 420ms cubic-bezier(.165, .84, .44, 1), background 420ms cubic-bezier(.165, .84, .44, 1);
+}
+
+@media screen and (min-width: 48rem) {
+    button {
+        display: inline-block;
+        white-space: nowrap;
+        flex-basis: auto;
+        width: auto;
+        height: auto;
+    }
+}
+
+.menu-header {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 76.875rem;
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: inherit;
+    /* background-color:rgb(92, 20, 92) ; */
+}
+
+@media screen and (min-width: 84.875rem) {
+    .menu-header {
+        max-width: 76.875rem
+    }
+}
+
+.menu-header a:hover {
+    border-bottom: solid white 2px;
+    color: white;
+}
+
+.menu-header a {
+    color: white;
+    /* מוריד קו תחתי לקישור */
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px;
+    width: 9vw;
+}
+
+.logo {
+    font-size: 25px;
+    margin-top: 6px;
+    font-weight: 700;
+    padding-right: 2rem;
+    display: flex;
+    width: 125px;
+    position: relative;
+    left: 5%;
+    top: 24px;
+}
+
+.logo span {
+    color: white;
+    visibility: hidden;
+}
+
+.menu {
+    display: flex;
+    flex: 1;
+}
+
+.second {
+    justify-content: flex-start;
+}
+
+.menu-list {
+    /* justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    line-height: 1.4444; */
+    display: flex;
+    margin: 0px;
+    line-height: 1.4444;
+    justify-content: space-evenly;
+    padding-top: 3%;
+    list-style: none;
+}
+
+@media screen and (max-width: 720px) {
+
+    button {
+        height: 100%;
+        width: 100%;
+    }
+
+    .menu-list {
+        justify-content: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        line-height: 1.4444;
+    }
+
+    .notSee {
+        display: none;
+    }
+}
+
+.Product {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 11px;
+    background-image: url(/3099b/marketing/img/icons/icon_chevron_black_nav.svg);
+    width: 8px;
+    height: 5px;
+    background-size: 8px 5px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    transition: transform .1s cubic-bezier(.165, .84, .44, 1);
+    transform: rotate(0);
+}
+
+.liPrimary {
+    position: relative;
+    width: auto;
+    font-size: .9375rem;
+    color: #1d1d1d;
+    cursor: pointer;
+    padding-left: 1px;
+    padding-right: 1px;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.menu-primary {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    /* padding-right: 0; */
+    padding-left: 7%;
+    margin-top: -5%;
+}
+
+.menu-primary i {
+    color: white;
+    width: 3vw;
+    height: 3vh;
+    padding-bottom: 12px;
+    padding-top: 14px;
+    font-size: 18px;
+    margin-top: -1px;
+    margin-bottom: 2px;
+}
+
+@media screen and (max-width: 1100px) {
+    .menu-list {
+        padding-top: 30px;
+        margin-top: 15vh;
+    }
+    /* .menu-header{
+        background-color: white; 
+    }
+
+    .logo span {
+        color: black;
+        visibility:visible;
+    }
+
+    .menu-primary i{
+        color: black;
+    }
+    .notSee li a .buttonWhite{
+        visibility: hidden;
+    } */
+}
+
+.section {
+    max-width: none;
+    padding-bottom: 0;
+    background-color: #f4ede4;
+}
+
+.part-a {
+    align-items: flex-start;
+    grid-gap: normal;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4vw;
+    background-color: rgb(92, 20, 92);
+    padding-top: 20px;
+    padding-bottom: 70px;
+    margin-top: 20px;
+}
+
+.h1 {
+    font-family: Slack-Larsseit, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+    /* font-weight: 700; */
+    line-height: 1.0625;
+    letter-spacing: -1.5px;
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+    margin-top: 15vh;
+    color: white;
+}
+
+@media screen and (max-width: 720px) {
+
+    .h1 {
+        font-size: 2rem;
+        margin-top: 1.5rem;
+        font-weight: 700;
+        line-height: 1.0625;
+        letter-spacing: -1.5px;
+        margin-bottom: 1rem;
+        max-width: 14em;
+        margin-top: 15vh;
+    }
+}
+
+.part-a p {
+    color: white;
+}
+
+.part-a a {
+    color: rgb(92, 20, 92);
+    padding: 20px 20px 20px 20px;
+    background-color: white;
+    font-size: small;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.part-a span {
+    color: rgba(255, 208, 0, 0.973);
+
+}
+
+.link-a {
+    padding-top: 30px;
+}
+
+.part-b {
+    padding: 0 4vw;
+    text-align: center !important;
+    margin: 0 auto;
+}
+
+.part-b p {
+    font-size: small;
+    font-weight: 800;
+}
+
+.menu-compamy {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (min-width: 48rem) {
+    .menu-compamy {
+        padding: 0 4vw;
+    }
+}
+
+.company_img {
+    max-width: 170px;
+    margin: 10px;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.top-right {
+    display: grid;
+    justify-content: end;
+    margin-right: 5%;
+    padding-bottom: 3%;
+}
+
+.part-c h2 {
+    line-height: 1.1875;
+    letter-spacing: -.3px;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.part-c p {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.4444;
+    letter-spacing: normal;
+    margin-bottom: 1rem
+}
+
+.part-c a {
+    color: rgb(3, 127, 184);
+}
+
+.left-center {
+    display: grid;
+    justify-content: start;
+    margin-left: 5%;
+    padding-bottom: 3%;
+}
+
+.content {
+    padding-top: 5%;
+    background-color: white;
+    text-align: center;
+}
+
+.contentPresence {
+    width: 71vw;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.contentPresence h1 {
+    color: rgb(92, 20, 92);
+}
+
+.deeper {
+    background-color: #f4ede4;
+    color: black;
+    padding-top: 2%;
+    padding-bottom: 5%;
+}
+
+.deeperIn {
+    width: 71vw;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    height: 100%;
+    width: 253px;
+    box-shadow: 0px 0px 20px 1px #dfdede;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.card:hover {
+    animation: scale 1s;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    /* 100% {
+        transform: scale(1.2);
+    } */
+}
+
+
+.card img {
+    width: 90%;
+}
+
+.card div {
+    font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.125;
+    letter-spacing: .8px;
+    font-size: .875rem;
+    text-transform: uppercase;
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    height: 3rem;
+    position: relative;
+    white-space: normal;
+
+}
+
+@media screen and (min-width: 64rem) {
+    .card div {
+        font-size: .875rem;
+    }
+}
+
+.card div p {
+    margin-top: 11%;
+}
+
+footer {
+    text-align: center;
+    background-color: white;
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+    padding-bottom: 7%;
+}
+
+footer h1 {
+    color: white;
+    padding-top: 5%;
+}
+
+.around {
+    background-color: rgb(92, 20, 92);
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    padding-top: 1%;
+    padding-bottom: 5%;
+}
+
+footer div div {
+    display: flex;
+    justify-content: center;
+}
+
+footer nav {
+    background-color: white;
+}
+
+.menu-menu-list {
+    flex: 0;
+    flex-basis: 0;
+    flex-direction: column;
+    transition: flex .5s ease-in-out;
+    list-style: none;
+    text-align: left;
+}
+
+.menu-menu-list a {
+    text-decoration: none;
+    color: black;
+}
+
+.c-nav--footer__download-link{
+margin-left: auto;
+    color: #1264a3;
+    font-weight: 700;
+    font-size: .875rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+@media screen and (min-width: 48rem){
+.c-nav--footer__metasocial .second {
+    width: auto;
+    margin-left: 0;
+}
+}
+
+@media screen and (min-width: 64rem){
+nav {
+    width: 83.8537%;
+    margin-top: 0;
+}
+}
+
+@media screen and (min-width: 48rem){
+    .c-nav--footer__svgicon:not(.c-slackhash) {
+    height: 16px;
+    width: 16px;
+}
+}
+
+@media screen and (min-width: 48rem) and (max-width: 885px){
+.c-nav__list:last-child {
+    margin-top: -2rem;
+}
+}
+
+@media screen and (min-width: 48rem){
+.c-nav--footer__metasocial .c-nav__list {
+    width: auto;
+    margin-left: 0;
+}
+}
+
+.c-nav--footer__metasocial .c-nav__list {
+    display: flex;
+    width: 100%;
+    font-size: 0;
+    margin-bottom: 0;
+}
+.menu-list div{
+    display: flex;
+}

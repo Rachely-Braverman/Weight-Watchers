@@ -1,0 +1,138 @@
+body{
+    direction: rtl;
+    background-color: #f7f6f6;
+}
+
+.product {
+    height: 316px;
+    width: 225px;
+    box-shadow: 0px 0px 20px 1px #96ffa4;
+    border-radius: 33px;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+.product span {
+    cursor: pointer;
+}
+
+.products {
+    width: 71vw;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.product span {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #646464;
+}
+
+.product h5 {
+    margin: 18px;
+    color: #646464;
+}
+
+.product div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 23px;
+}
+
+.product div button {
+    width: 90px;
+    color: white;
+    border-radius: 18px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 35px;
+    border-style: none;
+    margin-left: 2px;
+    margin-right: 2px;
+    outline-style: none;
+}
+
+.product div button:hover {
+    background-color: #1ebe3e;
+}
+
+.ShowProducts{
+    width: 71vw;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+#formProduct{
+    border: 1px solid rgb(49, 101, 29);
+    box-shadow: 0px 0px 20px 1px #96ffa4;
+    width: 40%;
+    /* height: 30%; */
+    text-align: center;
+    margin: 5%;
+    margin-right: 25%;
+    padding: 4%;
+    background-color: #ffffff;
+
+}
+#formProduct input{
+    margin-top: 3%;
+}
+#btnShow{
+    /* text-align: center; */
+    align-items: center;
+    margin-right: 45%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: rgb(108, 215, 118);
+    border-radius: 35px;
+    padding: 20px;
+}
+#btnShow:hover{
+    background-color: #1ebe3e;
+}
+#search{
+    border: 1px solid rgb(22, 90, 22);
+    box-shadow: 0px 0px 20px 1px #96ffa4;
+    background-color: #ffffff;
+    width: 40%;
+    /* height: 30%; */
+    text-align: center;
+    margin: 5%;
+    margin-right: 25%;
+    padding: 4%;
+}
+#search input{
+    margin-top: 3%;
+
+}
+.divProduct{
+    background-color: white;
+}
+#BtnSearch{
+    align-items: center;
+    /* margin-right: 5%; */
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: rgb(108, 215, 118);
+    border-radius: 35px;
+    padding: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    /* width: 10%; */
+}
+#BtnSearch:hover{
+    background-color: #1ebe3e;
+}
