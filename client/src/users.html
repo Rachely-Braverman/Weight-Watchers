@@ -28,7 +28,7 @@
     </style>
 </head>
 
-<body>
+<body onload="getListOfUsers()">
     <script src="usersList.js"></script>
     <h1>Welcome to the group manager</h1>
     <div class="card text-center">
@@ -75,47 +75,52 @@
 </html>
 
 <script type="text/javascript">
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", '/src/server.json');
-    xhr.send();
-    xhr.onload = function () {
-        if (xhr.status != 200) {
-            alert(`Error ${xhr.status}: ${xhr.statusText}`);
-        } else {
-            const users = JSON.parse(xhr.responseText).users;
-            console.log(users);
-            const container = document.getElementById("usersTable");
-            const arr = users.map(user => {
-                let bmi = user.weight.meeting[user.weight.meeting.length - 1].weight / (user.hight * user.hight);
-                let wrapper = document.createElement("div");
-                container.appendChild(wrapper);
-                let userDisplay = document.createElement("li");
-                let name = document.createElement("div");
-                let link = document.createElement("a");
-                let txtName = document.createTextNode(user.firstName + ' ' + user.lastName);
-                link.appendChild(txtName);
-                link.href = "/src/userDetails.html?id=" + user.id + "&bmi=" + bmi;
-                name.appendChild(link);
-                let bmiDisplay = document.createElement("p");
-                let txtBMI = document.createTextNode("bmi: " + bmi);
-                bmiDisplay.appendChild(txtBMI);
-                if (bmi > 25)
-                    bmiDisplay.classList.add("colorRed");
-                else
-                    bmiDisplay.classList.add("colorGreen");
-                userDisplay.appendChild(name);
-                userDisplay.appendChild(bmiDisplay);
-                wrapper.appendChild(userDisplay);
-                return wrapper;
-            })
-            container.append(...arr);
+
+    async function getUsers() {
+        try {
+            let res = await fetch('https://safe-beach-25848.herokuapp.com/users');
+            return await res.json();
+        } catch (err) {
+            err => console.log(err)
         }
     }
-    function search() {
-        if (xhr.readyState == 4) {
-            const allUsers = new usersList(JSON.parse(xhr.responseText).users);
-            allUsers.search();
-        }
+    
+    async function getListOfUsers() {
+        const data = await getUsers();
+        console.log(data);
+        const users=data.users;
+        console.log(users); console.log("bg");
+        const container = document.getElementById("usersTable");
+        const arr = users.map(user => {
+            let bmi = user.weight.meetings[user.weight.meetings.length - 1].weight / (user.hight * user.hight);
+            let wrapper = document.createElement("div");
+            container.appendChild(wrapper);
+            let userDisplay = document.createElement("li");
+            let name = document.createElement("div");
+            let link = document.createElement("a");
+            let txtName = document.createTextNode(user.firstName + ' ' + user.lastName);
+            link.appendChild(txtName);
+            link.href = "/src/userDetails.html?id=" + user.id + "&bmi=" + bmi;
+            name.appendChild(link);
+            let bmiDisplay = document.createElement("p");
+            let txtBMI = document.createTextNode("bmi: " + bmi);
+            bmiDisplay.appendChild(txtBMI);
+            if (bmi > 25)
+                bmiDisplay.classList.add("colorRed");
+            else
+                bmiDisplay.classList.add("colorGreen");
+            userDisplay.appendChild(name);
+            userDisplay.appendChild(bmiDisplay);
+            wrapper.appendChild(userDisplay);
+            return wrapper;
+        })
+        container.append(...arr);
+    }
+
+    async function search() {
+        const users = await getUsers();
+        const allUsers = new usersList(users)
+        allUsers.search();
     }
 
 </script>
