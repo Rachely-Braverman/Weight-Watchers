@@ -27,7 +27,7 @@ const foodMeals = () => {
     pushToServer(newDay);
 }
 
-dairies = [];
+dailies = [];
 
 pushToServer = (day) => {
     console.log("pushToServer");
@@ -40,10 +40,10 @@ pushToServer = (day) => {
             alert(`Error ${xhr.status}: ${xhr.statusText}`);
         } else {
             let user = JSON.parse(xhr.responseText);
-            dairies = user.mealsDairy;
-            console.log(dairies);
-            dairies.push(day);
-            console.log(dairies);
+            dailies = user.mealsDaily;
+            console.log(dailies);
+            dailies.push(day);
+            console.log(dailies);
             patch();
         }
     };
@@ -53,7 +53,7 @@ function patch() {
     fetch(`http://localhost:3000/users/${id}`, {
         method: "PATCH",
         body: JSON.stringify({
-            mealsDairy: dairies,
+            mealsDaily: dailies,
         }),
         headers: { "Content-type": `application/json; charset=UTF-8` },
     }).then((response) => {
@@ -63,8 +63,6 @@ function patch() {
     });
 }
 
-const myDairy = () => {
-    console.log("myDairy");
-    console.log(id);
-    window.location.href = "dairyDisplay.html?id="+id;
+const daily = () => {
+    window.location.href = "dailyDisplay.html?id="+id;
 };

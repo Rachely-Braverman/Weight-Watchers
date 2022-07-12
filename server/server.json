@@ -1,0 +1,118 @@
+[
+  {
+    "id": 111,
+    "firstName": "Shir",
+    "lastName": "Cohen",
+    "address": {
+      "city": "Tel Aviv",
+      "street": "Duvdevan",
+      "number": 1
+    },
+    "phone": "0504100000",
+    "email": "shiri@gmail.com",
+    "hight": 1.5,
+    "weight": {
+      "startWeight": 90,
+      "meetings": [
+        {
+          "date": "20/06/2022",
+          "weight": 89
+        },
+        {
+          "date": "20/07/2022",
+          "weight": 87
+        },
+        {
+          "date": "20/08/2022",
+          "weight": 88
+        }
+      ]
+    },
+    "mealsDairy": []
+  },
+  {
+    "id": 222,
+    "firstName": "Dan",
+    "lastName": "Levi",
+    "address": {
+      "city": "Ramat Gan",
+      "street": "Rimon",
+      "number": 2
+    },
+    "phone": "0504100000",
+    "email": "dan@gmail.com",
+    "hight": 1.6,
+    "weight": {
+      "startWeight": 100,
+      "meetings": [
+        {
+          "date": "20/06/2022",
+          "weight": 99
+        },
+        {
+          "date": "20/07/2022",
+          "weight": 97
+        },
+        {
+          "date": "20/08/2022",
+          "weight": 98
+        }
+      ]
+    },
+    "mealsDairy": [
+      {
+        "date": "2022-07-07",
+        "Breakfast": [
+          "Cola",
+          "Bread",
+          "Cake",
+          "Vegetable salad"
+        ],
+        "Lunch": [
+          "Chicken",
+          "Potatoes",
+          "Rice",
+          "Beans"
+        ],
+        "Dinner": [
+          "Milk",
+          "Egg",
+          "Bread",
+          "Cheese"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 333,
+    "firstName": "Avi",
+    "lastName": "Israel",
+    "address": {
+      "city": "Petah Tikva",
+      "street": "Gefen",
+      "number": 3
+    },
+    "phone": "0504100000",
+    "email": "avi@gmail.com",
+    "hight": 1.7,
+    "weight": {
+      "startWeight": 110,
+      "meetings": [
+        {
+          "date": "12/03/2022",
+          "weight": 99
+        },
+        {
+          "date": "12/03/2022",
+          "weight": 97
+        },
+        {
+          "date": "12/03/2022",
+          "weight": 98
+        }
+      ]
+    },
+    "mealsDairy": []
+  }
+ 
+]

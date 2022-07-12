@@ -11,12 +11,12 @@ const onload = () => {
         } else {
             let table = "";
             user = JSON.parse(xhr.responseText);
-            dairy = user.mealsDairy;
-            if (dairy.length === 0) {
-                alert("oops... dairy is null!!!");
-                window.location.href = `dairy.html?userId=${userId}`;
+            let daily = user.mealsDaily;
+            if (daily.length === 0) {
+                alert("oops... daily is null!!!");
+                window.location.href = `daily.html?userId=${userId}`;
             }
-            dairy.forEach((element) => {
+            daily.forEach((element) => {
                 table += `
                     <th>${"Date: " + element.date}</th>
                      
@@ -58,5 +58,5 @@ const onload = () => {
 };
 
 newDay = () => {
-    window.location.href = `dairy.html?userId=${userId}`;
+    window.location.href = `daily.html?userId=${userId}`;
 };

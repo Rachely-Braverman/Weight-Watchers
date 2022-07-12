@@ -10,7 +10,6 @@
 
 <body>
     <ul id="userDisplay">
-        <a id="dairyLink"></a>
         <h1 id="fullName"></h1>
         <div>
             <h3>address: </h3>
@@ -49,9 +48,9 @@
     const meetings = JSON.parse(myUser).weight.meeting;
     const bmi = url.searchParams.get("bmi");
     const link =document.createElement("a");
-    let txt = document.createTextNode("dairy");
+    let txt = document.createTextNode("daily");
     link.appendChild(txt);
-    link.href="/src/dairy.html?id=" + userId;
+    link.href="/src/daily.html?id=" + userId;
     document.getElementById("userDisplay").appendChild(link);
     document.getElementById("fullName").innerHTML += fullName;
     document.getElementById("street").innerHTML += street;
