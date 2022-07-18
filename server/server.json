@@ -36,7 +36,7 @@
           }
         ]
       },
-      "mealsDairy": []
+      "mealsDiary": []
     },
     {
       "id": 222,
@@ -67,7 +67,7 @@
           }
         ]
       },
-      "mealsDairy": [
+      "mealsDiary": [
         {
           "date": "2022-07-07",
           "Breakfast": [
@@ -120,7 +120,7 @@
           }
         ]
       },
-      "mealsDairy": []
+      "mealsDiary": []
     }
   ]
 }
